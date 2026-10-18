@@ -1,0 +1,9 @@
+Cash Empire Vercel multiplayer checks
+- Socket.IO handler is deployed as api/[...path].js so nested routes under /api are routed to the same function.
+- Client and server Socket.IO path: /api/socket-io/socket.io
+- Client bundle URL: /api/socket-io/socket.io.js
+- Requires REDIS_URL for shared state across function instances and durable profiles.
+- Verify Vercel project has WebSocket support enabled/available for the deployment/runtime.
+- After deploy, open https://YOUR-DOMAIN/api/socket-io/socket.io.js and confirm JavaScript is returned, not a 404/HTML page.
+- Then inspect browser DevTools Network -> WS and confirm /api/socket-io/socket.io/?EIO=4&transport=websocket upgrades successfully.
+- Syntax check only; no live Vercel/Redis deployment test has been performed.
